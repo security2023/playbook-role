@@ -1,0 +1,14 @@
+- name: Install Apache web server
+  become: true
+  yum:
+    name: httpd
+    state: present
+  tags:
+    - apache
+- name: Start Apache service
+  become: true
+  service:
+    name: httpd
+    state: started
+  tags:
+    - apache
