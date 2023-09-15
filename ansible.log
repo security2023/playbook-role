@@ -1,0 +1,406 @@
+2023-09-15 02:43:54,631 p=6438 u=ec2-user n=ansible | @all:
+  |--@db:
+  |  |--172.31.41.66
+  |--@ungrouped:
+  |--@ws:
+  |  |--172.31.44.156
+2023-09-15 02:44:10,850 p=6485 u=ec2-user n=ansible | 172.31.44.156 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2023-09-15 02:44:12,238 p=6485 u=ec2-user n=ansible | 172.31.41.66 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2023-09-15 03:02:51,324 p=6735 u=ec2-user n=ansible | playbook: /home/ec2-user/ansible-dev/first-playbook.yml
+2023-09-15 03:04:20,239 p=6777 u=ec2-user n=ansible | ERROR! the playbook: /home/ec2-user/ansible-dev/first-playbook.yml  could not be found
+2023-09-15 03:10:27,756 p=7157 u=ec2-user n=ansible | PLAY [db] ********************************************************************************
+2023-09-15 03:10:27,777 p=7157 u=ec2-user n=ansible | TASK [Gathering Facts] *******************************************************************
+2023-09-15 03:10:30,519 p=7157 u=ec2-user n=ansible | ok: [172.31.41.66]
+2023-09-15 03:10:30,552 p=7157 u=ec2-user n=ansible | TASK [Create a user] *********************************************************************
+2023-09-15 03:10:31,304 p=7157 u=ec2-user n=ansible | changed: [172.31.41.66]
+2023-09-15 03:10:31,316 p=7157 u=ec2-user n=ansible | TASK [Create a file on target host] ******************************************************
+2023-09-15 03:10:31,828 p=7157 u=ec2-user n=ansible | changed: [172.31.41.66]
+2023-09-15 03:10:31,840 p=7157 u=ec2-user n=ansible | TASK [Create a directory] ****************************************************************
+2023-09-15 03:10:32,163 p=7157 u=ec2-user n=ansible | changed: [172.31.41.66]
+2023-09-15 03:10:32,174 p=7157 u=ec2-user n=ansible | TASK [Install apache] ********************************************************************
+2023-09-15 03:10:57,713 p=7157 u=ec2-user n=ansible | changed: [172.31.41.66]
+2023-09-15 03:10:57,724 p=7157 u=ec2-user n=ansible | TASK [Start the apache service] **********************************************************
+2023-09-15 03:10:58,652 p=7157 u=ec2-user n=ansible | ok: [172.31.41.66]
+2023-09-15 03:10:58,671 p=7157 u=ec2-user n=ansible | PLAY RECAP *******************************************************************************
+2023-09-15 03:10:58,671 p=7157 u=ec2-user n=ansible | 172.31.41.66               : ok=6    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-09-15 03:37:26,401 p=4638 u=ec2-user n=ansible | ERROR! the role 'apache' was not found in /home/ec2-user/ansible-dev/roles:/home/ec2-user/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles:/home/ec2-user/ansible-dev
+
+The error appears to be in '/home/ec2-user/ansible-dev/apache-role-play.yml': line 6, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  roles:
+    - apache
+      ^ here
+
+2023-09-15 03:39:39,320 p=4690 u=ec2-user n=ansible | ERROR! the role 'apache' was not found in /home/ec2-user/ansible-dev/roles:/home/ec2-user/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles:/home/ec2-user/ansible-dev
+
+The error appears to be in '/home/ec2-user/ansible-dev/apache-role-play.yml': line 6, column 8, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  roles:
+     - apache
+       ^ here
+
+2023-09-15 03:40:15,849 p=4725 u=ec2-user n=ansible | ERROR! the role 'apache' was not found in /home/ec2-user/ansible-dev/roles:/home/ec2-user/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles:/home/ec2-user/ansible-dev
+
+The error appears to be in '/home/ec2-user/ansible-dev/apache-role-play.yml': line 6, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  roles:
+    - apache
+      ^ here
+
+2023-09-15 03:40:43,437 p=4808 u=ec2-user n=ansible | ERROR! A malformed role declaration was encountered.
+
+The error appears to be in '/home/ec2-user/ansible-dev/apache-role-play.yml': line 2, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+- name: Install Apache web server
+  ^ here
+
+2023-09-15 03:41:12,459 p=4841 u=ec2-user n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/home/ec2-user/ansible-dev/apache-role-play.yml': line 3, column 8, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+- name:Install Apache web server
+  hosts: db
+       ^ here
+
+2023-09-15 03:41:54,048 p=4876 u=ec2-user n=ansible | ERROR! A malformed role declaration was encountered.
+
+The error appears to be in '/home/ec2-user/ansible-dev/apache-role-play.yml': line 2, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+- name: Install Apache web server
+  ^ here
+
+2023-09-15 03:42:29,682 p=4914 u=ec2-user n=ansible | ERROR! A malformed role declaration was encountered.
+
+The error appears to be in '/home/ec2-user/ansible-dev/apache-role-play.yml': line 2, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+- name: Install Apache webserver
+  ^ here
+
+2023-09-15 03:42:51,893 p=4947 u=ec2-user n=ansible | ERROR! A malformed role declaration was encountered.
+
+The error appears to be in '/home/ec2-user/ansible-dev/apache-role-play.yml': line 2, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+- name: Install Apache
+  ^ here
+
+2023-09-15 03:43:25,736 p=4977 u=ec2-user n=ansible | ERROR! A malformed role declaration was encountered.
+
+The error appears to be in '/home/ec2-user/ansible-dev/apache-role-play.yml': line 2, column 4, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+-  name: Install Apache
+   ^ here
+
+2023-09-15 03:44:00,383 p=5010 u=ec2-user n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/home/ec2-user/ansible-dev/apache-role-play.yml': line 3, column 9, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+- name: Install Apache
+   hosts: db
+        ^ here
+
+2023-09-15 03:45:08,350 p=5044 u=ec2-user n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/home/ec2-user/ansible-dev/apache-role-play.yml': line 3, column 10, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+- name: Install Apache
+    hosts: db
+         ^ here
+
+2023-09-15 03:45:46,795 p=5077 u=ec2-user n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/home/ec2-user/ansible-dev/apache-role-play.yml': line 3, column 10, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+- name: Install Apache
+    hosts:  db
+         ^ here
+
+2023-09-15 03:48:02,726 p=5106 u=ec2-user n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/home/ec2-user/ansible-dev/apache-role-play.yml': line 3, column 10, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+- name: Install Apache ws
+    hosts:  db
+         ^ here
+
+2023-09-15 03:49:40,719 p=5139 u=ec2-user n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/home/ec2-user/ansible-dev/apache-role-play.yml': line 3, column 10, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+- name: Install Apache web server
+    hosts:  db
+         ^ here
+
+2023-09-15 03:51:16,721 p=5175 u=ec2-user n=ansible | ERROR! the role 'apache' was not found in /home/ec2-user/ansible-dev/roles:/home/ec2-user/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles:/home/ec2-user/ansible-dev
+
+The error appears to be in '/home/ec2-user/ansible-dev/apache-role-play.yml': line 6, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  roles:
+    - apache
+      ^ here
+
+2023-09-15 04:06:39,830 p=5243 u=ec2-user n=ansible | ERROR! the role 'apache' was not found in /home/ec2-user/ansible-dev/roles:/home/ec2-user/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles:/home/ec2-user/ansible-dev
+
+The error appears to be in '/home/ec2-user/ansible-dev/apache-role-play.yml': line 6, column 8, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  roles:
+     - apache
+       ^ here
+
+2023-09-15 04:10:24,264 p=5332 u=ec2-user n=ansible | ERROR! the role 'apache' was not found in /home/ec2-user/ansible-dev/roles:/home/ec2-user/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles:/home/ec2-user/ansible-dev
+
+The error appears to be in '/home/ec2-user/ansible-dev/apache-role-play.yml': line 6, column 8, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  roles:
+     - 'apache'
+       ^ here
+
+2023-09-15 04:11:01,945 p=5365 u=ec2-user n=ansible | PLAY [Install Apache web server] *********************************************************
+2023-09-15 04:11:02,022 p=5365 u=ec2-user n=ansible | TASK [Gathering Facts] *******************************************************************
+2023-09-15 04:11:04,293 p=5365 u=ec2-user n=ansible | ok: [172.31.41.66]
+2023-09-15 04:11:04,326 p=5365 u=ec2-user n=ansible | PLAY RECAP *******************************************************************************
+2023-09-15 04:11:04,326 p=5365 u=ec2-user n=ansible | 172.31.41.66               : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-09-15 04:19:55,140 p=5421 u=ec2-user n=ansible | PLAY [Install Apache web server] *********************************************************
+2023-09-15 04:19:55,188 p=5421 u=ec2-user n=ansible | TASK [Gathering Facts] *******************************************************************
+2023-09-15 04:19:57,215 p=5421 u=ec2-user n=ansible | ok: [172.31.41.66]
+2023-09-15 04:19:57,264 p=5421 u=ec2-user n=ansible | PLAY RECAP *******************************************************************************
+2023-09-15 04:19:57,264 p=5421 u=ec2-user n=ansible | 172.31.41.66               : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-09-15 04:20:34,736 p=5487 u=ec2-user n=ansible | ERROR! A malformed role declaration was encountered.
+
+The error appears to be in '/home/ec2-user/ansible-dev/apache-role-play.yml': line 2, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+- name: Install Apache web server
+  ^ here
+
+2023-09-15 04:22:11,054 p=5517 u=ec2-user n=ansible | ERROR! 'service' is not a valid attribute for a Play
+
+The error appears to be in '/home/ec2-user/ansible-dev/apache-role-play.yml': line 2, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+- name: Install Apache web server
+  ^ here
+
+2023-09-15 04:22:41,272 p=5550 u=ec2-user n=ansible | ERROR! A malformed role declaration was encountered.
+
+The error appears to be in '/home/ec2-user/ansible-dev/apache-role-play.yml': line 2, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+- name: Install Apache web server
+  ^ here
+
+2023-09-15 04:23:37,327 p=5588 u=ec2-user n=ansible | ERROR! A malformed role declaration was encountered.
+
+The error appears to be in '/home/ec2-user/ansible-dev/apache-role-play.yml': line 2, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+- name: Install Apache web server
+  ^ here
+
+2023-09-15 04:24:08,292 p=5615 u=ec2-user n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  did not find expected '-' indicator
+
+The error appears to be in '/home/ec2-user/ansible-dev/apache-role-play.yml': line 3, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+-  name: Install Apache web server
+  hosts: db
+  ^ here
+
+2023-09-15 04:24:43,101 p=5640 u=ec2-user n=ansible | ERROR! A malformed role declaration was encountered.
+
+The error appears to be in '/home/ec2-user/ansible-dev/apache-role-play.yml': line 2, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+- name: Install Apache web server
+  ^ here
+
+2023-09-15 04:25:16,615 p=5664 u=ec2-user n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  did not find expected '-' indicator
+
+The error appears to be in '/home/ec2-user/ansible-dev/apache-role-play.yml': line 3, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+-   name: Install Apache web server
+  hosts: db
+  ^ here
+
+2023-09-15 04:26:07,503 p=5689 u=ec2-user n=ansible | PLAY [Install Apache web server] *********************************************************
+2023-09-15 04:26:07,560 p=5689 u=ec2-user n=ansible | TASK [Gathering Facts] *******************************************************************
+2023-09-15 04:26:09,624 p=5689 u=ec2-user n=ansible | ok: [172.31.41.66]
+2023-09-15 04:26:09,744 p=5689 u=ec2-user n=ansible | PLAY RECAP *******************************************************************************
+2023-09-15 04:26:09,744 p=5689 u=ec2-user n=ansible | 172.31.41.66               : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-09-15 04:36:06,659 p=6266 u=ec2-user n=ansible | PLAY [Install Apache web server] *********************************************************
+2023-09-15 04:36:06,718 p=6266 u=ec2-user n=ansible | TASK [Gathering Facts] *******************************************************************
+2023-09-15 04:36:08,742 p=6266 u=ec2-user n=ansible | ok: [172.31.41.66]
+2023-09-15 04:36:08,770 p=6266 u=ec2-user n=ansible | PLAY RECAP *******************************************************************************
+2023-09-15 04:36:08,770 p=6266 u=ec2-user n=ansible | 172.31.41.66               : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-09-15 04:43:15,897 p=6389 u=ec2-user n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  did not find expected '-' indicator
+
+The error appears to be in '/home/ec2-user/ansible-dev/apache-role-play.yml': line 4, column 2, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  hosts: db
+ service:
+ ^ here
+
+2023-09-15 04:43:44,557 p=6416 u=ec2-user n=ansible | ERROR! 'service' is not a valid attribute for a Play
+
+The error appears to be in '/home/ec2-user/ansible-dev/apache-role-play.yml': line 2, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+- name: Install Apache web server
+  ^ here
+
+2023-09-15 04:44:07,977 p=6446 u=ec2-user n=ansible | ERROR! 'service' is not a valid attribute for a Play
+
+The error appears to be in '/home/ec2-user/ansible-dev/apache-role-play.yml': line 2, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+- name: Install Apache
+  ^ here
+
+2023-09-15 04:45:11,745 p=6483 u=ec2-user n=ansible | ERROR! 'service' is not a valid attribute for a Play
+
+The error appears to be in '/home/ec2-user/ansible-dev/apache-role-play.yml': line 2, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+- name: Install Apache
+  ^ here
+
+2023-09-15 04:46:55,135 p=6516 u=ec2-user n=ansible | PLAY [Install Apache web server] *********************************************************
+2023-09-15 04:46:55,184 p=6516 u=ec2-user n=ansible | TASK [Gathering Facts] *******************************************************************
+2023-09-15 04:46:58,171 p=6516 u=ec2-user n=ansible | ok: [172.31.41.66]
+2023-09-15 04:46:58,225 p=6516 u=ec2-user n=ansible | PLAY RECAP *******************************************************************************
+2023-09-15 04:46:58,225 p=6516 u=ec2-user n=ansible | 172.31.41.66               : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
